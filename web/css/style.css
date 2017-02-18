@@ -1,0 +1,5 @@
+#tchat{
+    overflow-y: scroll;
+    height: 500px;
+    bottom: 0;
+}

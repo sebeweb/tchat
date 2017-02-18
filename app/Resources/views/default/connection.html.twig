@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form method="POST" action="{{path('login')}}">
+        <input type="text" name="_username" placeholder="Email"/>
+        <input type="text" name="_password" placeholder="Mot de passe"/>
+        <input type="submit" placeholder="Envoyer"/>
+        <a href="#insc">inscription</a>
+    </form>
+    <form id="insc" method="POST" action="{{path('insc')}}">
+        <input type="text" name="email" placeholder="Email"/>
+        <input type="text" name="password" placeholder="Mot de passe"/>
+        <input type="submit" value="inscription"/>
+    </form>
+{% endblock %}
+
+{#{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{asset('/css/style.css')}}"
+{% endblock %}#}

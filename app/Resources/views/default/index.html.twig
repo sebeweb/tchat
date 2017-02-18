@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="tchat">
+        {%for message in messages %}
+            <p>De :{{message.user}} à {{message.date|date('d/m/y H:i:s')}}</p>
+            <p>{{message.message}}</p>
+        {% endfor %}
+    </div>
+    <div id="usr">
+        {%for user in users %}
+            <p>{{user.pseudo}}</p>
+        {% endfor %}
+    </div>
+    <div id="form">
+        <input type="text" id="message" placeholder="Message"/>
+        <input type="submit" id="button" placeholder="Envoyer"/>
+    </div>
+    {% if app.user.pseudo is null %}
+        <form method="POST" action="{{path('upPseudo')}}">
+            <input type="text" name="pseudo" placeholder="Saisir un pseudo"/>
+            <input type="submit" value="validez"/>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{asset('/css/style.css')}}"
+    {% endblock %}
